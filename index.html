@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Image previews</title>
+    <style>
+      section {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body style="font-family: sans-serif;">
+    <noscript>
+      <strong>niivue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <section>
+      <h1>
+        Inferolateral Artery
+      </h1>
+    </section>
+
+    <section>
+      <div id="demo1" style="width:90%; height:400px;">
+        <canvas id="gl1" height=480 width=640>
+        </canvas>
+      </div>
+    </section>
+    <section>
+      <h1>
+        Paramedian Artery
+      </h1>
+    </section>
+
+    <section>
+      <div id="demo2" style="width:90%; height:400px;">
+        <canvas id="gl2" height=480 width=640>
+        </canvas>
+      </div>
+    </section>
+    <section>
+      <h1>
+        Posterior Choroidal Artery
+      </h1>
+    </section>
+
+    <section>
+      <div id="demo3" style="width:90%; height:400px;">
+        <canvas id="gl3" height=480 width=640>
+        </canvas>
+      </div>
+    </section>
+    <section>
+      <h1>
+        Tuberothalamic Artery
+      </h1>
+    </section>
+
+    <section>
+      <div id="demo4" style="width:90%; height:400px;">
+        <canvas id="gl4" height=480 width=640>
+        </canvas>
+      </div>
+    </section>
+    <script src="https://unpkg.com/@niivue/niivue@0.24.2/dist/niivue.umd.js"></script>
+    <script>
+     var volumeList1 = [
+       // first item is background image
+       {
+         url: "./mni152.nii.gz",
+         colorMap: "gray",
+       },
+       {
+         url: "./Inferolateral-Artery-Left-19.nii.gz",
+         colorMap: 'redyell',
+         opacity: 0.5
+       },
+       {
+         url: "./Inferolateral-Artery-Right-19.nii.gz",
+         colorMap: 'redyell',
+         opacity: 0.5
+       }
+      ] 
+      var volumeList2 = [
+       // first item is background image
+       {
+         url: "./mni152.nii.gz",
+         colorMap: "gray",
+       },
+       {
+         url: "./Paramedian-Artery-Left-17.nii.gz",
+         colorMap: 'redyell',
+         opacity: 0.5
+       },
+       {
+         url: "./Paramedian-Artery-Right-17.nii.gz",
+         colorMap: 'redyell',
+         opacity: 0.5
+       }
+      ]
+      var volumeList3 = [
+       // first item is background image
+       {
+         url: "./mni152.nii.gz",
+         colorMap: "gray",
+       },
+       {
+         url: "./Posterior-Choroidal-Artery-Left-12.nii.gz",
+         colorMap: 'redyell',
+         opacity: 0.5
+       },
+       {
+         url: "./Posterior-Choroidal-Artery-Right-12.nii.gz",
+         colorMap: 'redyell',
+         opacity: 0.5
+       }
+      ]
+      var volumeList4 = [
+       // first item is background image
+       {
+         url: "./mni152.nii.gz",
+         colorMap: "gray",
+       },
+       {
+         url: "./Tuberothalamic-Artery-Left-8.nii.gz",
+         colorMap: 'redyell',
+         opacity: 0.5
+       },
+       {
+         url: "./Tuberothalamic-Artery-Right-8.nii.gz",
+         colorMap: 'redyell',
+         opacity: 0.5
+       }
+      ]
+      var nv1 = new niivue.Niivue()
+      nv1.setRadiologicalConvention(false)
+      nv1.attachTo('gl1')
+      nv1.loadVolumes(volumeList1)
+      nv1.setSliceType(nv1.sliceTypeMultiplanar)
+
+      var nv2 = new niivue.Niivue()
+      nv2.setRadiologicalConvention(false)
+      nv2.attachTo('gl2')
+      nv2.loadVolumes(volumeList2)
+      nv2.setSliceType(nv2.sliceTypeMultiplanar)
+
+      var nv3 = new niivue.Niivue()
+      nv3.setRadiologicalConvention(false)
+      nv3.attachTo('gl3')
+      nv3.loadVolumes(volumeList3)
+      nv3.setSliceType(nv3.sliceTypeMultiplanar)
+
+      var nv4 = new niivue.Niivue()
+      nv4.setRadiologicalConvention(false)
+      nv4.attachTo('gl4')
+      nv4.loadVolumes(volumeList4)
+      nv4.setSliceType(nv4.sliceTypeMultiplanar)
+    </script>
+  </body>
+</html>
+
